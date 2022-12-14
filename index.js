@@ -30,14 +30,17 @@ app.get('*', (req,res)=>{
 const PORT = process.env.PORT || 8000;
 
 const DATABASE_URL = process.env.CONNECTION_URL
+
+
 mongoose.connect(DATABASE_URL ,{useNewUrlParser : true , useUnifiedTopology : true})
     .then(() => {
         console.log("Connection With DataBase is Succesfully Estabilished.");
+        app.listen(PORT , (err)=>{console.log(`Server is running on port ${PORT}` , err)})
     })
     .catch((err) => {
         console.log("OOPS!! You lost Your Connection");
     })
 
-app.listen(PORT , (err)=>{console.log(`Server is running on port ${PORT}` , err)})
+
 
 //C:\Users\rakin\Desktop\STACKOVERFLOW-DEVELOPMENT-APP
