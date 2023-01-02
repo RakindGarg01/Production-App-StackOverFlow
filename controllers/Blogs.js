@@ -6,7 +6,7 @@ export const PostBlog = (req,res)=>{
         const imageBase = req.body.blogImage.base64;
         const buffer = Buffer.from(imageBase, "base64");
         const newImage = Date.now()+req.body.blogImage.name
-        fs.writeFileSync("../tmp/Uploads/"+newImage, buffer)
+        fs.writeFileSync("../../../tmp/Uploads/"+newImage, buffer)
 
 
             const NewBlog = new Blog({
