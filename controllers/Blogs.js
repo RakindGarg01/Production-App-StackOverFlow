@@ -6,8 +6,8 @@ export const PostBlog = (req,res)=>{
         const imageBase = req.body.blogImage.base64;
         const buffer = Buffer.from(imageBase, "base64");
         const newImage = Date.now()+req.body.blogImage.name
-        alert('You Cannot make a Post Right Now Because of Cyclic Policy of restricting data to write in files, it will be updated Soon. Sorry For Incovenience')
-//         fs.writeFileSync("../../../tmp/Uploads/"+newImage, buffer)
+//         alert('You Cannot make a Post Right Now Because of Cyclic Policy of restricting data to write in files, it will be updated Soon. Sorry For Incovenience')
+        fs.writeFileSync("../../../tmp/Uploads/"+newImage, buffer)
 
 
             const NewBlog = new Blog({
@@ -18,9 +18,9 @@ export const PostBlog = (req,res)=>{
                 blogImage: newImage
             })
         
-//             NewBlog.save()
-//             .then(()=>{res.send("Data Posted Sucessfully")})
-//             .catch((err)=>{res.send(err)})
+            NewBlog.save()
+            .then(()=>{res.send("Data Posted Sucessfully")})
+            .catch((err)=>{res.send(err)})
       
 }
 
