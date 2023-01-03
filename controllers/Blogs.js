@@ -18,9 +18,9 @@ export const PostBlog = (req,res)=>{
                 blogImage: newImage
             })
         
-            NewBlog.save()
-            .then(()=>{res.send("Data Posted Sucessfully")})
-            .catch((err)=>{res.send(err)})
+//             NewBlog.save()
+//             .then(()=>{res.send("Data Posted Sucessfully")})
+//             .catch((err)=>{res.send(err)})
       
 }
 
